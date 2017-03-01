@@ -59,6 +59,10 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
+.nav-sidebar > li.active {
+  border-right: 5px solid #de8529;
+}
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
@@ -66,6 +70,21 @@ body {
   background-color: #428bca;
 }
 
+ul.child-menu > li{
+  padding: 0px;
+  color: #fff;
+  background: #c8e1f0;
+  /*border-right: 5px solid #de8529;*/
+  margin-left: 0px;
+}
+
+ul.child-menu > li> a {
+  padding-left: 40px;
+}
+
+ul li span {
+    float: right
+}
 
 /*
  * Main content

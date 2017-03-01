@@ -5,9 +5,9 @@
       <div class="row">
         <sidebar></sidebar>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <breadcrumbs></breadcrumbs>
           <div class="row">
-            <view-router></view-router>
+            <router-view></router-view>
           </div>
         </div>
       </div>
@@ -20,12 +20,14 @@
 <script>
 import navbar from './components/dashboard/Navbar'
 import sidebar from './components/dashboard/Sidebar'
+import breadcrumbs from './components/dashboard/Breadcrumbs'
 
 export default {
   name: 'app',
   components: {
     'sidebar': sidebar,
-    'navbar': navbar
+    'navbar': navbar,
+    'breadcrumbs': breadcrumbs
   },
   styles: [
     require('../node_modules/bootstrap/dist/css/bootstrap.min.css'),

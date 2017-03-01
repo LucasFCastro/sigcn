@@ -1,4 +1,4 @@
-// var webpack = require('webpack')
+var webpack = require('webpack')
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
@@ -20,12 +20,12 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //     'window.$' : 'jquery',
-  //     'window.jQuery' : 'jquery'
-  //   })
-  // ],
+  plugins: [
+    new webpack.ProvidePlugin({
+      'window.$' : 'jquery',
+      'window.jQuery' : 'jquery'
+    })
+  ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     modules: [
@@ -36,7 +36,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': resolve('src'),
       'assets': resolve('src/assets'),
-      'components': resolve('src/components')
+      'components': resolve('src/components'),
+      'jquery': 'jquery/dist/jquery.min.js'
     }
   },
   module: {
