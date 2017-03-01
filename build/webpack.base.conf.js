@@ -37,7 +37,7 @@ module.exports = {
       'src': resolve('src'),
       'assets': resolve('src/assets'),
       'components': resolve('src/components'),
-      'jquery': 'jquery/dist/jquery.min.js'
+      'jquery': 'jquery/dist/jquery'
     }
   },
   module: {
