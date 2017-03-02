@@ -65,9 +65,15 @@ body {
 
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
+.nav-sidebar > .active > a:focus,
+table thead {
   color: #fff;
   background-color: #428bca;
+}
+
+table thead, th {
+  font-weight: lighter;
+  font-style: normal;
 }
 
 ul.child-menu > li{

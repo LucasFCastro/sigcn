@@ -6,10 +6,10 @@
         <li><a href="" @click.prevent='collapse()'><i :class='icon'></i></a></li>
         <li><a href="" @click.prevent='close()'><i class="fa fa-close"></i></a></li>
       </ul>
-      <h3>{{title}}</h3>
+      <h3><slot name="title"></slot></h3>
     </div>
     <div class="x_content" :id='content_id'>
-      {{content}}
+        <slot name="content"></slot>
     </div>
   </div>
 </template>
@@ -17,7 +17,6 @@
 <script>
 var $ = require('jquery')
 export default {
-  props: ['title', 'content'],
   data () {
     return {
       icon: 'fa fa-chevron-up'
