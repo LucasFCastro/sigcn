@@ -28,7 +28,9 @@
         Prestadores
       </div>
       <div slot="content">
-        <data-table></data-table>
+        <data-table
+          :datas='dados'
+            :columns='colunas'></data-table>
       </div>
     </panel-box>
   </div>
@@ -47,7 +49,50 @@ export default {
   },
   data () {
     return {
-
+      dados: [
+        {
+          prestador: 'Hospital São Carlos',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        },
+        {
+          prestador: 'Hospital São Carlos',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        },
+        {
+          prestador: 'Hospital São Carlos',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        },
+        {
+          prestador: 'Hospital São Carlos',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        },
+        {
+          prestador: 'Hospital São Carlos',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        },
+        {
+          prestador: 'Hospital São Camilo',
+          cnpj_cpf: '12.456.154/0023-43',
+          data_base: '01/03',
+          uf: 'CE'
+        }
+    ],
+      colunas: [
+        'Nome Prestador',
+        'CNPJ/CPF',
+        'Data Base',
+        'UF'
+      ]
     }
   }
 }

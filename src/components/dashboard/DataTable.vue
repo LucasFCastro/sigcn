@@ -1,28 +1,18 @@
 <template lang="html">
   <div class="table-responsive">
   <table class="table table-condensed table-bordered table-hover">
-    <thead >
+    <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th v-for='column in columns'>
+          {{column}}
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+      <tr v-for='row in datas'>
+        <td v-for='cell in row'>
+          {{cell}}
+        </td>
       </tr>
     </tbody>
   </table>
@@ -31,6 +21,10 @@
 
 <script>
 export default {
+  props: {
+    datas: Object,
+    columns: Object
+  }
 }
 </script>
 
