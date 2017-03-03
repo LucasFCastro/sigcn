@@ -29,8 +29,10 @@
       </div>
       <div slot="content">
         <data-table
-          :datas='dados'
-            :columns='colunas'></data-table>
+          :dados='prestadores'
+          :columns='colunas'
+          :per-page=25
+          ></data-table>
       </div>
     </panel-box>
   </div>
@@ -49,51 +51,41 @@ export default {
   },
   data () {
     return {
-      dados: [
-        {
-          prestador: 'Hospital São Carlos',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        },
-        {
-          prestador: 'Hospital São Carlos',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        },
-        {
-          prestador: 'Hospital São Carlos',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        },
-        {
-          prestador: 'Hospital São Carlos',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        },
-        {
-          prestador: 'Hospital São Carlos',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        },
-        {
-          prestador: 'Hospital São Camilo',
-          cnpj_cpf: '12.456.154/0023-43',
-          data_base: '01/03',
-          uf: 'CE'
-        }
-    ],
       colunas: [
-        'Nome Prestador',
-        'CNPJ/CPF',
-        'Data Base',
-        'UF'
+        {
+          label: 'Nome Prestador',
+          field: 'fantasia',
+          visible: true,
+          order: 1
+        },
+        {
+          label: 'CNPJ/CPF',
+          field: 'cpf_cnpj',
+          visible: true,
+          order: 1
+        },
+        {
+          label: 'Data Base',
+          field: 'data_cred',
+          visible: true,
+          order: 1
+        },
+        {
+          label: 'UF',
+          field: 'UF',
+          visible: true,
+          order: 1
+        }
       ]
     }
+  },
+  computed: {
+    prestadores () {
+      return this.$store.state.prestador.prestadorList
+    }
+  },
+  created () {
+    this.$store.dispatch('getPrestadores')
   }
 }
 </script>
