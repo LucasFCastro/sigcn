@@ -9,7 +9,6 @@
           <data-table
             :dados='prestadores'
             :columns='colunas'
-            :per-page=12
             ></data-table>
         </div>
       </panel-box>

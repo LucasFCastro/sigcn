@@ -8,7 +8,6 @@
           <span :class="[item.open ? 'fa fa-caret-down' : 'fa fa-caret-right']" v-show="item.hassub"></span>
         </a>
         <ul class="nav child-menu"  :id="'menu-'+item.id">
-        <!-- <ul class="nav child-menu" v-if="item.hassub && item.active=='active'" :id="'menu-'+item.id"> -->
 					<li v-for="subitem in item.submenu">
             <a :href="subitem.link">{{subitem.name}}</a>
           </li>
