@@ -7,7 +7,7 @@
         </div>
         <div slot="content">
           <data-table
-            :dados='prestadores'
+            :list='prestadores'
             :columns='colunas'
             ></data-table>
         </div>
@@ -54,25 +54,25 @@ export default {
           label: 'Nome Prestador',
           field: 'fantasia',
           visible: true,
-          order: 1
+          order: -1
         },
         {
           label: 'CNPJ/CPF',
           field: 'cpf_cnpj',
           visible: true,
-          order: 1
+          order: -1
         },
         {
           label: 'Data Base',
           field: 'data_cred',
           visible: true,
-          order: 1
+          order: -1
         },
         {
           label: 'UF',
           field: 'UF',
           visible: true,
-          order: 1
+          order: -1
         }
       ]
     }

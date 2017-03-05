@@ -11,9 +11,12 @@ li > a > label {
   font-weight: normal;
 }
 
+
+/* Sort column */
 th.sort-column {
   cursor: pointer;
 }
+
 /*
  * Global add-ons
  */

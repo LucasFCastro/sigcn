@@ -74,14 +74,17 @@
 
 <script>
 var $ = require('jquery')
+var _ = require('lodash')
 export default {
   props: {
-    dados: Array,
+    list: Array,
     columns: Array
   },
   methods: {
     changePage (page) {
-      this.currentPage = page
+      if (page > 0 && page <= this.lastPage) {
+        this.currentPage = page
+      }
     },
     changePerPage (event) {
       this.perPage = Math.abs(event.srcElement.value)
@@ -92,17 +95,25 @@ export default {
     sortColumn (column) {
       this.columnSorted = column.field
       column.order = column.order * -1
-      // this.dados = this.dados.sort((a, b) => {return a[column.field] - b[column.field]})
+      if (column.order === 1) {
+        this.orderSorted = 'desc'
+      } else {
+        this.orderSorted = 'asc'
+      }
     }
   },
   data () {
     return {
       currentPage: 1,
       perPage: 10,
-      columnSorted: ''
+      columnSorted: '',
+      orderSorted: ''
     }
   },
   computed:{
+    dados () {
+      return _.orderBy(this.list, [this.columnSorted], [this.orderSorted])
+    },
     total () {
       return this.dados.length
     },
