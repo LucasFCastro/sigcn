@@ -54,24 +54,28 @@ export default {
           label: 'Nome Prestador',
           field: 'fantasia',
           visible: true,
+          search: true,
           order: -1
         },
         {
           label: 'CNPJ/CPF',
           field: 'cpf_cnpj',
           visible: true,
+          search: false,
           order: -1
         },
         {
           label: 'Data Base',
           field: 'data_cred',
           visible: true,
+          search: false,
           order: -1
         },
         {
           label: 'UF',
           field: 'UF',
           visible: true,
+          search: true,
           order: -1
         }
       ]
