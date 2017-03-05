@@ -1,20 +1,5 @@
 <template lang="html">
   <div class="table-responsive">
-    <div class="pull-left">
-      <form class="form-inline">
-        <div class="form-group">
-        Mostre
-        <select class="form-control" v-model='perPage' style="padding: 0px;">
-          <option>10</option>
-          <option>25</option>
-          <option>50</option>
-          <option>100</option>
-        </select>
-        itens por página.
-        </div>
-      </form>
-
-    </div>
     <div class="dropdown pull-right">
       <button class="btn btn-default btn-sm dropdown-toggle" type="button" @click.prevent='menuConfig'>
         <i class="fa fa-cog" aria-hidden="true"></i>
@@ -50,7 +35,22 @@
       </tr>
     </tbody>
   </table>
-  <div class="text-center">
+  <div class="pull-left">
+    <form class="form-inline">
+      <div class="form-group">
+      Mostre
+      <select class="form-control" @change.prevent='changePerPage' style="padding: 0px; id='perPage'">
+        <option>10</option>
+        <option>25</option>
+        <option>50</option>
+        <option>100</option>
+      </select>
+      itens por página.
+      </div>
+    </form>
+  </div>
+
+  <div class="pull-right">
     <ul class="pagination" v-show='lastPage > 1'>
       <li :class="{'disabled': currentPage == 1}" v-show='lastPage > 1'><a href="" @click.prevent='changePage(currentPage-1)'>Anterior</a></li>
       <li :class="{'active': 1 == currentPage}"><a href="" @click.prevent='changePage(1)'>1</a></li>
@@ -83,13 +83,16 @@ export default {
     changePage (page) {
       this.currentPage = page
     },
+    changePerPage (event) {
+      this.perPage = Math.abs(event.srcElement.value)
+    },
     menuConfig () {
       $('#menuConfigTable').slideToggle()
     },
     sortColumn (column) {
       this.columnSorted = column.field
       column.order = column.order * -1
-      this.dados = this.dados.sort((a, b) => {return a.column.field - b.column.field})
+      // this.dados = this.dados.sort((a, b) => {return a[column.field] - b[column.field]})
     }
   },
   data () {
