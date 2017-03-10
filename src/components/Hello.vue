@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="message">
+      <a @click.prevent='showMessage("Mensagem de teste")' class="btn btn-primary">Mensagem</a>
+    </div>
     <div class="col-md-12">
       <panel-box>
         <div slot="title">
@@ -13,16 +16,6 @@
         </div>
       </panel-box>
     </div>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <panel-box>
-      <div slot="title">
-        Negociações em Andamento2
-      </div>
-      <div slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </panel-box>
-  </div>
 
   <div class="col-md-6 col-sm-6 col-xs-12">
     <panel-box>
@@ -39,6 +32,9 @@
 </template>
 
 <script>
+var $ = require('jquery')
+require('bootstrap-notify')
+
 import panelBox from './dashboard/PanelBox.vue'
 import dataTable from './dashboard/DataTable.vue'
 export default {
@@ -47,11 +43,16 @@ export default {
     'panel-box': panelBox,
     'data-table': dataTable
   },
+  methods: {
+    showMessage (message) {
+      $.notify(message,{type: 'danger'})
+    }
+  },
   data () {
     return {
       colunas: [
         {
-          label: 'Nome Prestador',
+          label: 'Nome do Prestador',
           field: 'fantasia',
           visible: true,
           search: true,
@@ -97,17 +98,14 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }

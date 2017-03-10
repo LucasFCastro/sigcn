@@ -32,6 +32,7 @@ export default {
   styles: [
     require('../node_modules/bootstrap/dist/css/bootstrap.min.css'),
     require('../node_modules/font-awesome/css/font-awesome.min.css'),
+    require('../node_modules/animate.css/animate.min.css'),
     require('./assets/css/custom.css')
   ]
 }

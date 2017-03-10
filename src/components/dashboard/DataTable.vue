@@ -1,4 +1,5 @@
 <template lang="html">
+
   <div class="table-responsive">
     <div class="pull-right">
       <div class="input-group">
@@ -213,5 +214,6 @@ export default {
 </script>
 
 <style lang="css">
-
 </style>
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
